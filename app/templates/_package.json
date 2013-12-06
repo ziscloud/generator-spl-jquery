@@ -1,0 +1,11 @@
+{
+  "name": "<%= _.slugify(pluginName) %>",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "karma": "~0.10",
+    "karma-html-reporter": "~0.1",
+    "karma-coverage": "0.1.0",
+    "jsdoc": "3.2.1"
+  }
+}
