@@ -37,13 +37,13 @@ SplJqueryGenerator.prototype.app = function app() {
   this.mkdir('src');
   this.mkdir('test');
 
-  this.template('_package.json', 'package.json');
   this.template('_main.js', 'src/main.js');
   this.template('_mainSpec.js', 'test/mainSpec.js');
 
+  this.template('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
   this.copy('_karma.conf.js', 'karma.conf.js');
-  this.copy('_spl.bin', 'spl');
+  this.copy('_Gruntfile.js', 'Gruntfile.js');
 };
 
 SplJqueryGenerator.prototype.projectfiles = function projectfiles() {

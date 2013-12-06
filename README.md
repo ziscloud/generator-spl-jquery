@@ -1,7 +1,6 @@
-# generator-spl-jquery [![Build Status](https://secure.travis-ci.org/jalet/generator-spl-jquery.png?branch=master)](https://travis-ci.org/jalet/generator-spl-jquery)
+# generator-spl-jquery 
 
 A generator for [Yeoman](http://yeoman.io).
-
 
 ## Getting Started
 
