@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A generator for Yeoman",
   "keywords": [
-    "yeoman-generator"
+    "spl", "spl-jquery", "yeoman-generator"
   ],
   "homepage": "https://github.com/jalet/generator-spl-jquery",
   "bugs": "https://github.com/jalet/generator-spl-jquery/issues",
