@@ -7,7 +7,17 @@ var SplJqueryGenerator = module.exports = function SplJqueryGenerator(args, opti
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
-    this.installDependencies({ skipInstall: options['skip-install'] });
+    this.installDependencies({ 
+      skipInstall: options['skip-install'],
+      callback: function() {;
+        this.log.error('\n##################################');
+        this.log.writeln();
+        this.log.ok('To start testing, please run');
+        this.log.ok('$ grunt karma:unit:start watch');
+        this.log.writeln();
+        this.log.error('##################################');
+      }.bind(this)
+    });
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
