@@ -1,11 +1,13 @@
 {
     "name": "<%= _.slugify(pluginName) %>",
-    "version": "0.1.0",
+    "version": "0.0.0",
     "dependencies": {},
     "devDependencies": {
         "grunt": "0.4.1",
         "grunt-cli": "0.1.9",
         "grunt-karma": "0.7.2",
+        "karma-html-reporter": "~0.1",
+        "karma-coverage": "0.1.0",
         "grunt-contrib-watch": "0.5.3",
         "grunt-contrib-jshint": "0.7.2"
     }

@@ -25,19 +25,21 @@ module.exports = function(config) {
         'bower_components/jquery/jquery.js',
         'bower_components/jasmine-jquery/lib/jasmine-jquery.js',
         'src/*.js',
-        'test/*Spec.js',
+        'test/*Spec.js'
+        /*
         {
-            pattern: 'test/fixtures/**/*.html',
+            pattern: 'test/fixtures/*.html',
             watched: true,
             included: false,
             served: true
         },
         {
-            pattern: 'test/fixtures/**/*.json',
+            pattern: 'test/fixtures/*.json',
             watched: true,
             included: false,
             served: true
         }
+        */
     ],
 
 
