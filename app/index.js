@@ -10,7 +10,7 @@ var SplJqueryGenerator = module.exports = function SplJqueryGenerator(args, opti
     this.installDependencies({ 
       skipInstall: options['skip-install'],
       callback: function() {;
-        this.log.error('\n##################################');
+        this.log.error('##################################');
         this.log.writeln();
         this.log.ok('To start testing, please run');
         this.log.ok('$ grunt karma:unit:start watch');
@@ -33,7 +33,8 @@ SplJqueryGenerator.prototype.askFor = function askFor() {
 
   var prompts = [{
     name: 'pluginName',
-    message: 'What is the name of the plugin?'
+    message: 'What is the name of the plugin?',
+    default: process.cwd().split(path.sep).reverse()[0]
   }];
 
   this.prompt(prompts, function (props) {
