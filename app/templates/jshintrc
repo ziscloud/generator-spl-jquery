@@ -82,5 +82,20 @@
     "white"         : false,    // true: Check against strict whitespace and indentation rules
 
     // Custom Globals
-    "globals"       : {"jQuery": false, "SPL": false, "yepnope": false, "Modernizr": false}        // additional predefined global variables
+    "globals"       : {
+        "jQuery": false,
+        "SPL": false,
+        "yepnope": false,
+        "Modernizr": false,
+        "dump": false,
+        "describe": false,
+        "beforeEach": false,
+        "it": false,
+        "iit": false,
+        "xit": false,
+        "jasmine": false,
+        "expect": false,
+        "module": false,
+        "spyOn": false
+    }
 }

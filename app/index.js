@@ -31,14 +31,23 @@ SplJqueryGenerator.prototype.askFor = function askFor() {
   // have Yeoman greet the user.
   console.log(this.yeoman);
 
-  var prompts = [{
-    name: 'pluginName',
-    message: 'What is the name of the plugin?',
-    default: process.cwd().split(path.sep).reverse()[0]
-  }];
+  var prompts = [
+    {
+      name: 'pluginName',
+      message: 'What is the name of the plugin?',
+      default: process.cwd().split(path.sep).reverse()[0]
+    },
+    {
+      name: 'useLess',
+      type: 'confirm',
+      message: 'Will this plygin use LESS as a CSS precompiler?',
+      default: true
+    }
+  ];
 
   this.prompt(prompts, function (props) {
     this.pluginName = props.pluginName;
+    this.useLess    = props.useLess;
 
     cb();
   }.bind(this));
@@ -52,9 +61,9 @@ SplJqueryGenerator.prototype.app = function app() {
   this.template('_mainSpec.js', 'test/mainSpec.js');
 
   this.template('_package.json', 'package.json');
-  this.copy('_bower.json', 'bower.json');
-  this.copy('_karma.conf.js', 'karma.conf.js');
-  this.copy('_Gruntfile.js', 'Gruntfile.js');
+  this.template('_bower.json', 'bower.json');
+  this.template('_karma.conf.js', 'karma.conf.js');
+  this.template('_Gruntfile.js', 'Gruntfile.js');
 };
 
 SplJqueryGenerator.prototype.projectfiles = function projectfiles() {
