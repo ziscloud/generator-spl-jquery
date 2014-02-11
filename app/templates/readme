@@ -1,0 +1,36 @@
+# <%= pluginName %>
+-----
+
+## Example
+
+```javascript
+$('.<%= pluginName %>').<%=  _.camelize(pluginName.toLowerCase()) %>({
+    /** OPTIONS */
+});
+```
+
+## Options
+*nothing yet*
+
+## Test
+
+```sh grunt watch:karma```
+
+## Release
+
+##### Create new patch release, x.x.1
+
+```grunt release```
+
+##### Create new minor release, x.1.x
+
+```grunt release:minor```
+
+##### Create new major release, 1.x.x
+
+```grunt release:major```
+
+##### Dry run (no write)
+
+```grunt release --no-write```
+

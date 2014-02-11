@@ -10,14 +10,30 @@ var SplJqueryGenerator = module.exports = function SplJqueryGenerator(args, opti
     this.installDependencies({ 
       skipInstall: options['skip-install'],
       callback: function() {;
-        this.log.error('##################################');
-        this.log.writeln();
-        this.log.ok('To start testing, please run');
-        this.log.ok('$ grunt karma:unit:start watch');
-        this.log.writeln();
-        this.log.error('##################################');
+        this.emit('dependenciesInstalled')
       }.bind(this)
     });
+  });
+
+  this.on('dependenciesInstalled', function() {
+
+    this.spawnCommand('grunt', ['dist']).on('exit', function() {
+      this.emit('gruntComplete') 
+    }.bind(this));
+
+  });
+
+  this.on('gruntComplete', function() {
+
+    this.spawnCommand('git', ['init']).on('exit', function() {
+      this.emit('gitComplete')
+    }.bind(this));
+
+  });
+
+  this.on('gitComplete', function() {
+    this.log.ok('To start testing, please run');
+    this.log.ok('$ grunt watch:karma');
   });
 
   this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
@@ -40,7 +56,7 @@ SplJqueryGenerator.prototype.askFor = function askFor() {
     {
       name: 'useLess',
       type: 'confirm',
-      message: 'Will this plygin use LESS as a CSS precompiler?',
+      message: 'Will this plugin use LESS as a CSS precompiler?',
       default: true
     }
   ];
@@ -57,8 +73,10 @@ SplJqueryGenerator.prototype.app = function app() {
   this.mkdir('src');
   this.mkdir('test');
 
-  this.template('_main.js', 'src/main.js');
-  this.template('_mainSpec.js', 'test/mainSpec.js');
+  this.template('_main.js', 'src/' + this.pluginName + '.js');
+  this.template('_mainSpec.js', 'test/' + this.pluginName + 'Spec.js');
+
+  this.template('_main.less', 'src/' + this.pluginName + '.less');
 
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
@@ -68,4 +86,6 @@ SplJqueryGenerator.prototype.app = function app() {
 
 SplJqueryGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('jshintrc', '.jshintrc');
+  this.copy('gitignore', '.gitignore')
+  this.copy('readme', 'README.md')
 };

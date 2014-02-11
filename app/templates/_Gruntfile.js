@@ -8,13 +8,13 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true
             },
-            all: ['src/**/*.js']
+            all: ['src/**/<%= pluginName %>.js']
         },
 
         karma: {
             unit: {
                 configFile: 'karma.conf.js',
-                background: true
+                background: false
             }
         },
         <% if(useLess) { %>
@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                     yuicompress: false
                 },
                 files: {
-                    'src/main.css': 'src/main.less'
+                    'src/<%= pluginName %>.css': 'src/<%= pluginName %>.less'
                 }
 
             },
@@ -35,24 +35,42 @@ module.exports = function(grunt) {
                     yuicompress: true
                 },
                 files: {
-                    'src/main.min.css': 'src/main.less'
+                    'src/<%= pluginName %>.min.css': 'src/<%= pluginName %>.less'
                 }
             }
         },<% } %>
 
+        uglify: {
+            dist: {
+                files: {
+                    'src/<%= pluginName %>.min.js': ['src/<%= pluginName %>.js']
+                }
+            }
+        },
+
         watch: {
             karma: {
                 files: ['src/**/*.js', 'test/**/*.js'],
-                tasks: ['jshint:all', 'karma:unit']
+                tasks: [<%= useLess ? "'less:default', " : '' %>'jshint:all', 'karma:unit']
             }
         },
+
+        release: {
+            options: {
+                npm:    false,
+                npmtag: false
+            }
+        }
 
     });
 
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-release');
+
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     <%= useLess ? "grunt.loadNpmTasks('grunt-contrib-less');" : '' %>
 
-
+    grunt.registerTask('dist', ['jshint:all', 'uglify:dist', 'less:dist']);
 };
