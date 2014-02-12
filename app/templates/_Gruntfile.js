@@ -8,7 +8,7 @@ module.exports = function(grunt) {
             options: {
                 jshintrc: true
             },
-            all: ['src/**/<%= pluginName %>.js']
+            all: ['src/<%= pluginName %>.js']
         },
 
         karma: {
@@ -35,7 +35,7 @@ module.exports = function(grunt) {
                     yuicompress: true
                 },
                 files: {
-                    'src/<%= pluginName %>.min.css': 'src/<%= pluginName %>.less'
+                    'dist/<%= pluginName %>.min.css': 'src/<%= pluginName %>.less'
                 }
             }
         },<% } %>
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
         uglify: {
             dist: {
                 files: {
-                    'src/<%= pluginName %>.min.js': ['src/<%= pluginName %>.js']
+                    'dist/<%= pluginName %>.min.js': ['src/<%= pluginName %>.js']
                 }
             }
         },
@@ -57,6 +57,7 @@ module.exports = function(grunt) {
 
         release: {
             options: {
+                file:   'bower.json',
                 npm:    false,
                 npmtag: false
             }

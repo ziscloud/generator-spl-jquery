@@ -1,6 +1,10 @@
 {
   "name": "<%= _.slugify(pluginName) %>",
-  "version": "0.1.0",
+  "version": "0.0.0",
+  "main": [
+    <%= useLess ? '"dist/' + pluginName + '.min.css",' : '' %>
+    "dist/<%= pluginName %>.min.js"
+  ],
   "dependencies": {},
   "devDependencies": {
     "jquery": "1.7.2",
@@ -10,10 +14,12 @@
   "private": false,
   "ignore": [
     "**/.*",
-    "node_modules",
-    "bower_components",
     "package.json",
-    "karma.conf.js"
+    "node_modules",
+    "karma.conf.js",
+    "bower_components",
+    "coverage",
+    "test"
   ]
 }
 

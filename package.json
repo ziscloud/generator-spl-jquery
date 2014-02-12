@@ -1,6 +1,6 @@
 {
   "name": "generator-spl-jquery",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A generator for Yeoman",
   "keywords": [
     "spl", "spl-jquery", "yeoman-generator"
