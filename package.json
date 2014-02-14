@@ -3,7 +3,9 @@
   "version": "0.4.3",
   "description": "A generator for Yeoman",
   "keywords": [
-    "spl", "spl-jquery", "yeoman-generator"
+    "spl",
+    "spl-jquery",
+    "yeoman-generator"
   ],
   "homepage": "https://github.com/jalet/generator-spl-jquery",
   "bugs": "https://github.com/jalet/generator-spl-jquery/issues",
@@ -24,7 +26,10 @@
     "yeoman-generator": "~0.14.0"
   },
   "devDependencies": {
-    "mocha": "~1.14.0"
+    "mocha": "~1.14.0",
+    "grunt": "~0.4.2",
+    "grunt-cli": "~0.1.13",
+    "grunt-release": "~0.6.1"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

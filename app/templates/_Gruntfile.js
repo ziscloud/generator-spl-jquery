@@ -55,6 +55,16 @@ module.exports = function(grunt) {
             }
         },
 
+        jsdoc : {
+            dist : {
+                src: ['src/*.js', 'test/*.js'],
+                jsdoc: 'node_modules/.bin/jsdoc',
+                options: {
+                    destination: 'doc'
+                }
+            }
+        },
+
         release: {
             options: {
                 file:   'bower.json',
@@ -66,6 +76,7 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-release');
 
     grunt.loadNpmTasks('grunt-contrib-watch');
@@ -73,5 +84,5 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     <%= useLess ? "grunt.loadNpmTasks('grunt-contrib-less');" : '' %>
 
-    grunt.registerTask('dist', ['jshint:all', 'uglify:dist', 'less:dist']);
+    grunt.registerTask('dist', ['jshint:all', 'jsdoc', 'uglify:dist'<%= useLess ? ", 'less:dist'" : '' %>]);
 };
