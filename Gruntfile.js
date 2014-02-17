@@ -4,6 +4,10 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
+        changelog: {
+            options: {}
+        },
+
         release: {
             options: {
                 file:   'package.json'
@@ -13,4 +17,5 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-release');
+    grunt.loadNpmTasks('grunt-changelog');
 };
