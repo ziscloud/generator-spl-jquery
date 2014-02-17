@@ -29,7 +29,8 @@
     "mocha": "~1.14.0",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.13",
-    "grunt-release": "~0.6.1"
+    "grunt-release": "~0.6.1",
+    "bower": "~1.2.8"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"

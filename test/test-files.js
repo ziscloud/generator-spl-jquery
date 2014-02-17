@@ -12,7 +12,7 @@ describe('spl-jquery generator', function () {
             return done(err);
           }
 
-          this.splapp = helpers.createGenerator('spl-generator:app', [
+          this.splapp = helpers.createGenerator('spl-jquery:app', [
             '../../app', [
               helpers.createDummyGenerator(),
               'mocha:app'
