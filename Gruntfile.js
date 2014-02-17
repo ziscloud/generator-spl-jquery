@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 
         changelog: {
             options: {
-                dest: "CHANGELOG"
+                from: "2011-05-01"
             }
         },
 
@@ -19,5 +19,5 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-release');
-    grunt.loadNpmTasks('grunt-changelog');
+    grunt.loadNpmTasks('grunt-conventional-changelog');
 };
