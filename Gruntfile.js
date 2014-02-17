@@ -5,7 +5,9 @@ module.exports = function(grunt) {
     grunt.initConfig({
 
         changelog: {
-            options: {}
+            options: {
+                dest: "CHANGELOG"
+            }
         },
 
         release: {
