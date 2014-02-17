@@ -76,7 +76,9 @@ SplJqueryGenerator.prototype.app = function app() {
   this.template('_main.js', 'src/' + this.pluginName + '.js');
   this.template('_mainSpec.js', 'test/' + this.pluginName + 'Spec.js');
 
-  this.template('_main.less', 'src/' + this.pluginName + '.less');
+  if (this.useLess) {
+    this.template('_main.less', 'src/' + this.pluginName + '.less');
+  }
 
   this.template('_package.json', 'package.json');
   this.template('_bower.json', 'bower.json');
