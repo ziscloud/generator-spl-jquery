@@ -17,6 +17,12 @@ To install generator-spl-jquery from npm, run:
 ```
 $ npm install -g generator-spl-jquery
 ```
+Create directory for plugin
+
+```
+$ mkdir folder-name
+$ cd folder-name
+```
 
 Finally, initiate the generator:
 
