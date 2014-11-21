@@ -4,68 +4,81 @@
 var assert = require('assert');
 var path    = require('path');
 var helpers = require('yeoman-generator').test;
+var fs = require('fs');
 
-describe('spl-jquery generator', function () {
+var TEST_PATH = './.temp';
+var TEST_NAME = 'test-name';
+var TEST_CMD  = 'spl-jquery:app';
+
+describe('spl-jquery', function () {
+
+  describe('with default options', function() {
     beforeEach(function (done) {
-        helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
-          if (err) {
-            return done(err);
+      var deps = [
+        [helpers.createDummyGenerator(), TEST_CMD],
+      ];
+
+      helpers.run(path.join(__dirname, '../app'))
+          .inDir(path.join(__dirname, TEST_PATH))
+          .withGenerators(deps)
+          .withOptions({install: false, git: false})
+          .withPrompt({pluginName: TEST_NAME})
+          .on('end', done);
+    });
+
+    it('creates required files', function () {
+      var expected = [
+          ['.jshintrc', /"SPL": false/],
+
+          ['.gitignore', /bower_components\//],
+          ['.gitignore', /node_modules\//],
+
+          ['package.json', /"name": "test-name"/],
+          ['bower.json', /"name": "test-name"/],
+
+          ['src/test-name.js', /\$\.fn\.testName/],
+          ['src/test-name.js', /TestName = function TestName()/]
+      ];
+      assert.fileContent(expected);
+    });
+  });
+
+  describe('with with less', function() {
+    before(function (done) {
+      var deps = [
+        [helpers.createDummyGenerator(), TEST_CMD],
+      ];
+
+      helpers.run(path.join(__dirname, '../app'))
+      .inDir(path.join(__dirname, TEST_PATH))
+      .withGenerators(deps)
+      .withOptions({install: false, git: false})
+      .withPrompt({pluginName: TEST_NAME})
+      .on('end', done);
+    });
+
+    it('creates required files', function () {
+      var expected = [
+          ['src/test-name.less', /\.test-name {/]
+      ];
+
+      assert.fileContent(expected);
+    });
+  });
+
+  after(function() {
+    var deleteFolderRecursive = function(path) {
+      if( fs.existsSync(path) ) {
+        fs.readdirSync(path).forEach(function(file,index){
+          var curPath = path + "/" + file;
+          if(fs.lstatSync(curPath).isDirectory()) { // recurse
+            deleteFolderRecursive(curPath);
+          } else { // delete file
+            fs.unlinkSync(curPath);
           }
-
-          this.splapp = helpers.createGenerator('spl-jquery:app', [
-            '../../app', [
-              helpers.createDummyGenerator(),
-              'mocha:app'
-            ]
-          ]);
-          this.splapp.options['skip-install'] = true;
-
-          done();
-        }.bind(this));
-    });   
-
-    it('creates required files', function (done) {
-        var expected = [
-            ['.jshintrc', /"SPL": false/],
-
-            ['.gitignore', /bower_components\//],
-            ['.gitignore', /node_modules\//],
-
-            ['package.json', /"name": "test-name"/],
-            ['bower.json', /"name": "test-name"/],
-
-            ['src/test-name.js', /\$\.fn\.testName/],
-            ['src/test-name.js', /TestName = function TestName()/]
-        ];
-
-        helpers.mockPrompt(this.splapp, {
-            pluginName: 'test-name',
         });
-
-        this.splapp.useLess = false;
-
-        this.splapp.options['skip-install'] = true;
-        this.splapp.run({}, function() {
-            helpers.assertFiles(expected);
-            done();
-        });
-    });
-
-    it('creates required files with LESS', function (done) {
-        var expected = [
-            ['src/test-name.less', /\.test-name {/]
-        ];
-
-        helpers.mockPrompt(this.splapp, {
-            pluginName: 'test-name',
-            useLess: true
-        });
-
-        this.splapp.options['skip-install'] = true;
-        this.splapp.run({}, function() {
-            helpers.assertFiles(expected);
-            done();
-        });
-    });
-    
+        fs.rmdirSync(path);
+      }
+    }(TEST_PATH);
+  });
 });
