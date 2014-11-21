@@ -39,7 +39,7 @@ describe('spl-jquery generator', function () {
         ];
 
         helpers.mockPrompt(this.splapp, {
-            pluginName: 'test-name',
+            pluginName: 'test-name'
         });
 
         this.splapp.useLess = false;
