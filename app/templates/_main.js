@@ -1,15 +1,15 @@
 /**
  * See (http://jquery.com/).
  * @name jQuery
- * @class 
+ * @class
  * See the jQuery Library  (http://jquery.com/) for full details.  This just
  * documents the function and classes that are added to jQuery by this plug-in.
  */
- 
+
 /**
  * See (http://jquery.com/)
  * @name fn
- * @class 
+ * @class
  * See the jQuery Library  (http://jquery.com/) for full details.  This just
  * documents the function and classes that are added to jQuery by this plug-in.
  * @memberOf jQuery
@@ -19,12 +19,12 @@
     'use strict';
 
     /**
-     * @class 
+     * @class
      * @name jQuery.fn.<%=  _.camelize(pluginName.toLowerCase()) %>
      * @memberOf jQuery.fn
      * @example
  *    $('.<%= pluginName %>').<%=  _.camelize(pluginName.toLowerCase()) %>({
-     *      
+     *
      *    });
      *
      * @description My fancy plugin description
@@ -42,7 +42,7 @@
          */
         options = $.extend(true, {}, $.fn.<%=  _.camelize(pluginName.toLowerCase()) %>.defaults, settings);
 
-        /** 
+        /**
          * @constructor
          * @ignore
          */
