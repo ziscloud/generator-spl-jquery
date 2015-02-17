@@ -1,13 +1,13 @@
 # generator-spl-jquery 
 
-[![Build Status](https://travis-ci.org/jalet/generator-spl-jquery.png?branch=master)](https://travis-ci.org/jalet/generator-spl-jquery)
+[![Build Status](https://travis-ci.org/se-novamedia-publicweb/generator-spl-jquery.png?branch=master)](https://travis-ci.org/se-novamedia-publicweb/generator-spl-jquery)
 
 
 [![NPM](https://nodei.co/npm/generator-spl-jquery.png?downloads=true)](https://nodei.co/npm/generator-spl-jquery/)
 
-[![Dependency Status](https://david-dm.org/jalet/generator-spl-jquery.svg?style=flat-square)](https://david-dm.org/jalet/generator-spl-jquery)
-[![devDependency Status](https://david-dm.org/jalet/generator-spl-jquery/dev-status.svg?style=flat-square)](https://david-dm.org/jalet/generator-spl-jquery#info=devDependencies)
-[![peerDependency Status](https://david-dm.org/jalet/generator-spl-jquery/peer-status.svg?style=flat-square)](https://david-dm.org/jalet/generator-spl-jquery#info=peerDependencies)
+[![Dependency Status](https://david-dm.org/se-novamedia-publicweb/generator-spl-jquery.svg?style=flat-square)](https://david-dm.org/se-novamedia-publicweb/generator-spl-jquery)
+[![devDependency Status](https://david-dm.org/se-novamedia-publicweb/generator-spl-jquery/dev-status.svg?style=flat-square)](https://david-dm.org/se-novamedia-publicweb/generator-spl-jquery#info=devDependencies)
+[![peerDependency Status](https://david-dm.org/se-novamedia-publicweb/generator-spl-jquery/peer-status.svg?style=flat-square)](https://david-dm.org/se-novamedia-publicweb/generator-spl-jquery#info=peerDependencies)
 
 
 ## Getting Started
