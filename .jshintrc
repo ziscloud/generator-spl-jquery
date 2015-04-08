@@ -17,5 +17,12 @@
     "strict": true,
     "trailing": true,
     "smarttabs": true,
-    "white": true
+    "white": true,
+    "nomen": true,
+
+    "globals": {
+        "require": false,
+        "module": false,
+        "process": false
+    }
 }
