@@ -26,6 +26,7 @@ describe('spl-jquery', function () {
         it('creates required files', function () {
             var expected = [
                 ['.jshintrc', /"SPL": false/],
+                ['.bowerrc',  /"directory": "bower_components"/],
 
                 ['.gitignore', /bower_components\//],
                 ['.gitignore', /node_modules\//],
