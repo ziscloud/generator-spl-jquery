@@ -1,23 +1,28 @@
 {
   "name": "generator-spl-jquery",
   "version": "0.7.4",
-  "description": "A generator for Yeoman",
+  "description": "A Yeoman generator for jQuery plugin",
   "keywords": [
     "spl",
     "spl-jquery",
     "yeoman-generator"
   ],
-  "homepage": "https://github.com/se-novamedia-publicweb/generator-spl-jquer",
-  "bugs": "https://github.com/se-novamedia-publicweb/generator-spl-jquer/issues",
+  "homepage": "https://github.com/se-novamedia-publicweb/generator-spl-jquery",
+  "bugs": "https://github.com/se-novamedia-publicweb/generator-spl-jquery/issues",
   "author": {
     "name": "Joakim Jarsäter",
     "email": "joakim@jarsater.com",
     "url": "https://github.com/jalet"
   },
+  "contributors": [{
+    "name": "Pascal Gagneur",
+    "email": "pascal@gagneur.se",
+    "url": "https://github.com/pascalgagneur"
+  }],
   "main": "app/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/se-novamedia-publicweb/generator-spl-jquer.git"
+    "url": "git://github.com/se-novamedia-publicweb/generator-spl-jquery.git"
   },
   "scripts": {
     "test": "mocha"
