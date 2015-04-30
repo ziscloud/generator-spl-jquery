@@ -4,13 +4,25 @@ module.exports = function(grunt) {
 
     grunt.initConfig({
 
+        clean: {
+            dist:{
+                src: ['dist/*']
+            }
+        },
         jshint: {
             options: {
                 jshintrc: true
             },
             all: ['src/<%= pluginName %>.js']
         },
-
+        copy: {
+              main: {
+                  expand: true,
+                  cwd: 'src/',
+                  src: '**',
+                  dest: 'dist/'
+              }
+        },
         karma: {
             unit: {
                 configFile: 'karma.conf.js',
@@ -44,6 +56,15 @@ module.exports = function(grunt) {
             dist: {
                 files: {
                     'dist/<%= pluginName %>.min.js': ['src/<%= pluginName %>.js']
+                },
+                options: {
+                    preserveComments: false,
+                    sourceMap: true,
+                    sourceMapName: 'dist/<%= pluginName %>.min.map',
+                    report: 'min',
+                    beautify: {
+                        ascii_only: true
+                    }
                 }
             }
         },
@@ -84,5 +105,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     <%= useLess ? "grunt.loadNpmTasks('grunt-contrib-less');" : '' %>
 
-    grunt.registerTask('dist', ['jshint:all', 'jsdoc', 'uglify:dist'<%= useLess ? ", 'less:dist'" : '' %>]);
+    grunt.registerTask('dist', ['clean:dist', 'jshint:all', 'jsdoc', 'copy', 'uglify:dist'<%= useLess ? ", 'less:dist'" : '' %>]);
+
 };
