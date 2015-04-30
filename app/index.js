@@ -34,56 +34,57 @@
             }.bind(this));
         },
 
-        createGenericFiles: function () {
+        createGenericFiles: function() {
             this.copy('jshintrc', '.jshintrc');
             this.copy('gitignore', '.gitignore');
+            this.copy('bowerrc', '.bowerrc');
         },
 
-        createMainJsAndTestFiles: function () {
+        createMainJsAndTestFiles:   function () {
 
             this.fs.copyTpl(
-                this.templatePath('_main.js'),
-                this.destinationPath('src/' + this.pluginName + '.js'),
-                { pluginName: this.pluginName, _: this._ }
+                    this.templatePath('_main.js'),
+                    this.destinationPath('src/' + this.pluginName + '.js'),
+                    { pluginName: this.pluginName, _: this._ }
             );
 
             this.fs.copyTpl(
-                this.templatePath('_mainSpec.js'),
-                this.destinationPath('test/' + this.pluginName + 'Spec.js'),
-                { pluginName: this.pluginName, _: this._ }
+                    this.templatePath('_mainSpec.js'),
+                    this.destinationPath('test/' + this.pluginName + 'Spec.js'),
+                    { pluginName: this.pluginName, _: this._ }
             );
         },
 
         createLessFilesIfNeeded: function () {
             if (this.useLess) {
                 this.fs.copyTpl(
-                    this.templatePath('_main.less'),
-                    this.destinationPath('src/' + this.pluginName + '.less'),
-                    { pluginName: this.pluginName, _: this._ }
+                        this.templatePath('_main.less'),
+                        this.destinationPath('src/' + this.pluginName + '.less'),
+                        { pluginName: this.pluginName, _: this._ }
                 );
             }
         },
 
         createDependenciesAndSetupFiles: function () {
             this.fs.copyTpl(
-                this.templatePath('_package.json'),
-                this.destinationPath('package.json'),
-                { pluginName: this.pluginName, useLess: this.useLess, _: this._ }
+                    this.templatePath('_package.json'),
+                    this.destinationPath('package.json'),
+                    { pluginName: this.pluginName, useLess: this.useLess, _: this._ }
             );
             this.fs.copyTpl(
-                this.templatePath('_bower.json'),
-                this.destinationPath('bower.json'),
-                { pluginName: this.pluginName, useLess: this.useLess, _: this._ }
+                    this.templatePath('_bower.json'),
+                    this.destinationPath('bower.json'),
+                    { pluginName: this.pluginName, useLess: this.useLess, _: this._ }
             );
             this.fs.copyTpl(
-                this.templatePath('_karma.conf.js'),
-                this.destinationPath('karma.conf.js'),
-                { pluginName: this.pluginName, _: this._ }
+                    this.templatePath('_karma.conf.js'),
+                    this.destinationPath('karma.conf.js'),
+                    { pluginName: this.pluginName, _: this._ }
             );
             this.fs.copyTpl(
-                this.templatePath('_Gruntfile.js'),
-                this.destinationPath('Gruntfile.js'),
-                { pluginName: this.pluginName, useLess: this.useLess, _: this._ }
+                    this.templatePath('_Gruntfile.js'),
+                    this.destinationPath('Gruntfile.js'),
+                    { pluginName: this.pluginName, useLess: this.useLess, _: this._ }
             );
         },
 
