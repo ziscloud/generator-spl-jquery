@@ -100,9 +100,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-jsdoc');
     grunt.loadNpmTasks('grunt-release');
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     <%= useLess ? "grunt.loadNpmTasks('grunt-contrib-less');" : '' %>
 
     grunt.registerTask('dist', ['clean:dist', 'jshint:all', 'jsdoc', 'copy', 'uglify:dist'<%= useLess ? ", 'less:dist'" : '' %>]);
