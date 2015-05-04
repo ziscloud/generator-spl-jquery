@@ -1,6 +1,6 @@
 {
   "name": "generator-spl-jquery",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "A Yeoman generator for jQuery plugin",
   "keywords": [
     "spl",
@@ -14,11 +14,13 @@
     "email": "joakim@jarsater.com",
     "url": "https://github.com/jalet"
   },
-  "contributors": [{
-    "name": "Pascal Gagneur",
-    "email": "pascal@gagneur.se",
-    "url": "https://github.com/pascalgagneur"
-  }],
+  "contributors": [
+    {
+      "name": "Pascal Gagneur",
+      "email": "pascal@gagneur.se",
+      "url": "https://github.com/pascalgagneur"
+    }
+  ],
   "main": "app/index.js",
   "repository": {
     "type": "git",
