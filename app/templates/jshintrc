@@ -85,7 +85,7 @@
         "describe": false,
         "beforeEach": false,
         "it": false,
-        "iit": false,
+        "fit": false,
         "xit": false,
         "jasmine": false,
         "expect": false,
