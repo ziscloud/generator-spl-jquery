@@ -19,7 +19,7 @@ describe('spl-jquery', function () {
                 .inDir(path.join(__dirname, './.temp'))
                 .withGenerators(deps)
                 .withOptions({install: false, git: false})
-                .withPrompt({pluginName: 'test-name'})
+                .withPrompts({pluginName: 'test-name'})
                 .on('end', done);
         });
 
@@ -50,7 +50,7 @@ describe('spl-jquery', function () {
 
             a.inDir(path.join(__dirname, './.temp'));
             a.withGenerators(deps);
-            a.withPrompt({pluginName: 'test-name'});
+            a.withPrompts({pluginName: 'test-name'});
             a.withOptions({install: false, git: false});
             a.on('end', done);
         });

@@ -1,5 +1,5 @@
 {
-    "name": "<%= _.slugify(pluginName) %>",
+    "name": "<%= uss.slugify(pluginName) %>",
     "version": "0.0.0",
     "dependencies": {},
     "devDependencies": {

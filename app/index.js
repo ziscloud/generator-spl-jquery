@@ -4,6 +4,7 @@
     var path = require('path');
     var generators = require('yeoman-generator');
     var mkdir = require("mkdirp");
+    var uss = require('underscore.string');
 
     module.exports = generators.Base.extend({
         constructor: function () {
@@ -11,6 +12,7 @@
 
             this.option('install', {defaults: true});
             this.option('git', {defaults: true});
+            this.uss = uss;
         },
 
         promptTask: function () {
@@ -45,13 +47,13 @@
             this.fs.copyTpl(
                     this.templatePath('_main.js'),
                     this.destinationPath('src/' + this.pluginName + '.js'),
-                    { pluginName: this.pluginName, _: this._ }
+                    { pluginName: this.pluginName, uss: this.uss }
             );
 
             this.fs.copyTpl(
                     this.templatePath('_mainSpec.js'),
                     this.destinationPath('test/' + this.pluginName + 'Spec.js'),
-                    { pluginName: this.pluginName, _: this._ }
+                    { pluginName: this.pluginName, uss: this.uss }
             );
         },
 
@@ -60,7 +62,7 @@
                 this.fs.copyTpl(
                         this.templatePath('_main.less'),
                         this.destinationPath('src/' + this.pluginName + '.less'),
-                        { pluginName: this.pluginName, _: this._ }
+                        { pluginName: this.pluginName, uss: this.uss }
                 );
             }
         },
@@ -69,22 +71,22 @@
             this.fs.copyTpl(
                     this.templatePath('_package.json'),
                     this.destinationPath('package.json'),
-                    { pluginName: this.pluginName, useLess: this.useLess, _: this._ }
+                    { pluginName: this.pluginName, useLess: this.useLess, uss: this.uss }
             );
             this.fs.copyTpl(
                     this.templatePath('_bower.json'),
                     this.destinationPath('bower.json'),
-                    { pluginName: this.pluginName, useLess: this.useLess, _: this._ }
+                    { pluginName: this.pluginName, useLess: this.useLess, uss: this.uss }
             );
             this.fs.copyTpl(
                     this.templatePath('_karma.conf.js'),
                     this.destinationPath('karma.conf.js'),
-                    { pluginName: this.pluginName, _: this._ }
+                    { pluginName: this.pluginName, uss: this.uss }
             );
             this.fs.copyTpl(
                     this.templatePath('_Gruntfile.js'),
                     this.destinationPath('Gruntfile.js'),
-                    { pluginName: this.pluginName, useLess: this.useLess, _: this._ }
+                    { pluginName: this.pluginName, useLess: this.useLess, uss: this.uss }
             );
         },
 
