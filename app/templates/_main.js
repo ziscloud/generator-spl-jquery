@@ -1,22 +1,38 @@
-/**
- * See (http://jquery.com/).
- * @name jQuery
- * @class
- * See the jQuery Library  (http://jquery.com/) for full details.  This just
- * documents the function and classes that are added to jQuery by this plug-in.
- */
-
-/**
- * See (http://jquery.com/)
- * @name fn
- * @class
- * See the jQuery Library  (http://jquery.com/) for full details.  This just
- * documents the function and classes that are added to jQuery by this plug-in.
- * @memberOf jQuery
- */
-(function ($, window, document, undefined) {
-
+// UMD dance - https://github.com/umdjs/umd
+!function(root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['jquery'], factory);
+  } else {
+    factory(root.jQuery);
+  }
+}(this, function($) {
     'use strict';
+
+
+    var defaults = {};
+
+    /**
+     * @constructor
+     * @ignore
+     */
+    var <%= _.classify(pluginName) %> = function <%= _.classify(pluginName) %> (element, options) {
+        this.$el     = $(element);
+        this.options = options;
+
+        this.init();
+        this.addEventListeners();
+    };
+
+    /** @access private */
+    <%= _.classify(pluginName) %>.prototype.init = function init() {
+
+    };
+
+    /** @access private */
+    <%= _.classify(pluginName) %>.prototype.addEventListeners = function addEventListeners() {
+
+    };
+
 
     /**
      * @class
@@ -32,39 +48,15 @@
      * @return {Object} jQuery
      */
     $.fn.<%=  _.camelize(pluginName.toLowerCase()) %>  = function (settings) {
-
-        var options, <%=  _.classify(pluginName) %>;
-
         /**
          * @memberOf jQuery.fn.<%=  _.camelize(pluginName.toLowerCase()) %>
          * @property {Object} options - Settings passed to the function merged with $.fn.<%=  _.camelize(pluginName.toLowerCase()) %>.defaults
          * @private
          */
-        options = $.extend(true, {}, $.fn.<%=  _.camelize(pluginName.toLowerCase()) %>.defaults, settings);
-
-        /**
-         * @constructor
-         * @ignore
-         */
-        <%= _.classify(pluginName) %> = function <%= _.classify(pluginName) %> (element) {
-            this.$el = $(element);
-
-            this.init();
-            this.addEventListeners();
-        };
-
-        /** @access private */
-        <%= _.classify(pluginName) %>.prototype.init = function init() {
-
-        };
-
-        /** @access private */
-        <%= _.classify(pluginName) %>.prototype.addEventListeners = function addEventListeners() {
-
-        };
+        var options = $.extend(true, {}, $.fn.<%=  _.camelize(pluginName.toLowerCase()) %>.defaults, settings);
 
         return this.each(function() {
-            return new <%=  _.classify(pluginName) %>(this);
+            return new <%=  _.classify(pluginName) %>(this, options);
         });
 
     };
@@ -75,6 +67,13 @@
      * @description Default options
      * @public
      */
-    $.fn.<%=  _.camelize(pluginName.toLowerCase()) %>.defaults = {};
+    $.fn.<%=  _.camelize(pluginName.toLowerCase()) %>.defaults = defaults;
 
-}(jQuery, window, document));
+    /**
+     * @name jQuery.fn.<%=  _.camelize(pluginName.toLowerCase()) %>.<%= _.classify(pluginName) %>
+     * @memberOf jQuery.fn.<%=  _.camelize(pluginName.toLowerCase()) %>
+     * @public
+     */
+    $.fn.<%=  _.camelize(pluginName.toLowerCase()) %>.<%= _.classify(pluginName) %> = <%= _.classify(pluginName) %>;
+
+});
