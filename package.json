@@ -1,6 +1,6 @@
 {
   "name": "generator-spl-jquery",
-  "version": "0.7.6",
+  "version": "0.7.7",
   "description": "A Yeoman generator for jQuery plugin",
   "keywords": [
     "spl",
