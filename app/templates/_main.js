@@ -1,11 +1,11 @@
 // UMD dance - https://github.com/umdjs/umd
-!function(root, factory) {
+(function(root, factory) {
   if (typeof define === 'function' && define.amd) {
     define(['jquery'], factory);
   } else {
     factory(root.jQuery);
   }
-}(this, function($) {
+})(this, function($) {
     'use strict';
 
 
